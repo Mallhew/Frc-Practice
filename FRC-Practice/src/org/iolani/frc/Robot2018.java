@@ -91,7 +91,7 @@ public class Robot2018 extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-		if (_autoCommand != null) _autoCommand.cancel();
+		Scheduler.getInstance().run();
 	}
 
 	/**
@@ -105,9 +105,7 @@ public class Robot2018 extends IterativeRobot {
 	/**
 	 * This function is called periodically during test mode
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	public void testPeriodic() {
-		LiveWindow.run();
 	}
 }

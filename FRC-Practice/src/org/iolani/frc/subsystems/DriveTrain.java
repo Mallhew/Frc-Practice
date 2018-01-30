@@ -2,6 +2,7 @@ package org.iolani.frc.subsystems;
 
 import org.iolani.frc.RobotMap;
 import org.iolani.frc.commands.OperateArcadeDrive;
+import org.iolani.frc.commands.OperateTankDrive;
 //import org.usfirst.frc.team2438.robot.commands.OperateTankDrive;
 import org.iolani.util.Utility;
 
@@ -40,26 +41,27 @@ public class DriveTrain extends Subsystem {
     	_left.setInverted(true);
     	_left.setSelectedSensorPosition(0, 0, 0);
         _leftSlave1  = new TalonSRX(RobotMap.driveLeftSlave1);
-        _leftSlave1.set(ControlMode.Follower, _left.getDeviceID());
+        _leftSlave1.setInverted(true);
+        _leftSlave1.follow(_left);
         _leftSlave2  = new TalonSRX(RobotMap.driveLeftSlave2);
-        _leftSlave2.set(ControlMode.Follower, _left.getDeviceID());
+        _leftSlave2.setInverted(true);
+        _leftSlave2.follow(_left);
         
         // configure right //
         _right = new TalonSRX(RobotMap.driveRightMain);
-        _right.setInverted(true);
         _right.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
         _right.setSelectedSensorPosition(0, 0, 0);
         _rightSlave1 = new TalonSRX(RobotMap.driveRightSlave1);
-        _rightSlave1.set(ControlMode.Follower, _right.getDeviceID());
+        _rightSlave1.follow(_right);
         _rightSlave2 = new TalonSRX(RobotMap.driveRightSlave2);
-        _rightSlave2.set(ControlMode.Follower, _right.getDeviceID());
+        _rightSlave2.follow(_right);
         
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //this.setDefaultCommand(new OperateTankDrive());
-        this.setDefaultCommand(new OperateArcadeDrive());
+        this.setDefaultCommand(new OperateTankDrive());
     }
 
     /**

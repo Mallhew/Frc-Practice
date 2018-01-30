@@ -22,13 +22,6 @@ public class RobotMap {
 	public static int driveRightMain   = 4;
 	public static int driveRightSlave1 = 5;
 	public static int driveRightSlave2 = 6;
-	public static int rightIntake	   = 7;
-	public static int leftIntake	   = 8;
-	public static int leftLiftMain 	   = 9;
-	public static int leftLiftSlave    = 10;
-	public static int rightLiftMain	   = 11;
-	public static int rightLiftSlave   = 12;
-	public static int winchTalon       = 13;
 	
 	
 	
